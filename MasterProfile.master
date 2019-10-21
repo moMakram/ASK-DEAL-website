@@ -1,0 +1,349 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterProfile.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+
+
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<link href="SpryAssets/SpryTooltip.css" rel="stylesheet" type="text/css" />
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryTooltip.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function MM_jumpMenu(targ, selObj, restore) { //v3.0
+        eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+        if (restore) selObj.selectedIndex = 0;
+    }
+</script>
+
+
+
+
+
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+       
+
+
+       
+<div id="cont">
+
+
+<div id="header">
+
+
+
+    <div id="login">
+  
+  <!--
+    <div id="log">
+  
+ 
+  
+  <input type="email" placeholder="username"  />
+  
+  <input type="password" placeholder="password" /> 
+  
+ 
+  <asp:TextBox ID="txtUser" runat="server" Height="26px" class="ll" Width="70px" 
+            ></asp:TextBox>
+        <asp:TextBox ID="txtPass" runat="server" Height="26px"  Width="70px" 
+            TextMode="Password" ></asp:TextBox>
+  
+ 
+  
+        <asp:Label ID="lblAct" runat="server" Text="Label" Visible="False"></asp:Label>
+  
+
+  
+    </div>
+    -->
+  
+  <!--
+    <div id="button">
+  
+  
+ 
+ 
+  <input type="button" value="login" />
+  
+  
+        <asp:Button ID="btnLogin" runat="server" Text="login" 
+            onclick="btnLogin_Click" 
+            BackColor="Black" 
+            CssClass="bu" Font-Bold="True" Font-Names="AngsanaUPC" Font-Size="X-Large" 
+                           ForeColor="White" Height="36px" Width="85px" style="border-radius:20px;"
+            />
+        
+   <asp:GridView ID="grd5" runat="server" Visible="False">
+        </asp:GridView>
+   <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
+        
+  
+
+ 
+  
+   </div>
+
+   
+  
+    <asp:CheckBox ID="chRem" runat="server" style="text-align: left" 
+            Text="remember me" />
+   <asp:Label ID="lblMsg" runat="server"></asp:Label>
+
+   -->
+
+
+
+
+   <div id="makpro">
+
+
+   <asp:DataList ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" 
+                                  onselectedindexchanged="DataList1_SelectedIndexChanged">
+                <ItemTemplate>
+                    
+                      <div id="makimg" >
+                      
+                      <img src="upload/<%# Eval("img") %>"  height="50" width="50" style="border-radius:190px;" > 
+                      </div>
+
+   <div id="makname"><%#Eval("firstname") %></div>
+                     
+                      
+       
+
+       
+                </ItemTemplate>
+            </asp:DataList>
+
+ 
+
+   </div>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                                  ConnectionString="<%$ ConnectionStrings:askConnectionString %>" 
+                                  SelectCommand="SELECT * FROM [Member] WHERE ([id] = @id)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="id" SessionField="id" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            
+   </div>
+   
+   
+   
+   <div id="cl">
+   </div>
+   
+   
+   
+   
+   <div id="right">
+  
+  <div id="search">
+  
+  <input type="search"  placeholder="Search" name="s" />
+  
+  </div>
+  
+  
+  
+  <div id="zero">
+  
+  <article>
+  0
+  </article>
+  
+  </div>
+ 
+  <div id="menu">
+     
+     <ul id="MenuBar1" class="MenuBarHorizontal">
+        <li id="meli" ><a class="MenuBarItemSubmenu" href="#" ></a>
+    <ul id="meli2">
+   
+ 
+      <li><a href="index.aspx">
+      Home
+      </a>
+        
+      </li>
+      
+  
+       <li ><a href="profile2.aspx">Profile</a>
+        
+      </li>
+      
+   
+       <li><a href="profile2.aspx">Setting</a>
+        
+      </li> 
+
+     
+    
+       <li >
+        
+         <asp:LinkButton ID="btnLogout" runat="server" onclick="btnLogout_Click">log out</asp:LinkButton>
+
+      </li>
+      
+    </ul>
+    
+  </li>
+     </ul>
+  </div>
+  
+  
+   </div>
+  
+   <div id="cl">
+   </div>
+   
+   
+   <div id="logo">
+   </div>
+
+</div>
+
+
+<div id="main">
+
+   <div id="bar">
+   
+      <ul>
+  <li><a href="depart.aspx">Categories</a></li>
+  <li><a href="#news">all orders</a></li>
+  <li><a href="#contact">My follow</a></li>
+  <li><a href="signup.aspx" style="color:#F60;">Sign up</a></li>
+      </ul>
+      
+    
+      
+      <div class="fasel">
+  
+      </div>
+  
+      <div class="fasel2">
+  
+     </div>
+     
+      <div class="fasel3">
+  
+     </div>
+   
+   </div>
+
+
+   <div id="maincont"> 
+
+
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+
+
+
+
+   </div>
+   
+ 
+
+
+
+
+
+
+
+
+   </div>
+
+
+
+  <div id="footer">
+
+<ul>
+
+  <li><a href="#home">Contact us</a></li>
+
+ 
+  <li><a href="#news">Feed back</a></li>
+      
+  <li><a href="#contact">About us</a></li>
+  <li><a href="#about">Privacy</a></li>
+  <li><a href="#home">Terms and conditions</a></li>
+  <li><a href="depart.html">Categories</a></li>
+  
+  <li><a href="#home">Chanse state</a></li>
+  <li><a href="#news">Site map</a></li>
+</ul>
+
+<div id="fasel1">
+  </div>
+
+<div id="fasel2">
+  </div>
+  
+  <div id="fasel3">
+  </div>
+  
+  <div id="fasel4">
+  </div>
+  
+  <div id="fasel5">
+  </div>
+  
+  <div id="fasel6">
+  </div>
+  
+  <div id="fasel7">
+  </div>
+
+
+</div>
+
+
+
+
+</div>
+
+<!--
+<div class="tooltipContent" id="sprytooltip5">Ask</div>
+<div class="tooltipContent" id="sprytooltip4">Cancel</div>
+<div class="tooltipContent" id="sprytooltip3"> Comment</div>
+<div class="tooltipContent" id="sprytooltip2">Share </div>
+<div class="tooltipContent" id="sprytooltip1"> Like</div>
+-->
+
+<script type="text/javascript">
+    var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", { imgDown: "SpryAssets/SpryMenuBarDownHover.gif", imgRight: "SpryAssets/SpryMenuBarRightHover.gif" });
+  /*  var sprytooltip1 = new Spry.Widget.Tooltip("sprytooltip1", "#sprytrigger1");
+    var sprytooltip2 = new Spry.Widget.Tooltip("sprytooltip2", "#sprytrigger2");
+    var sprytooltip3 = new Spry.Widget.Tooltip("sprytooltip3", "#sprytrigger3");
+    var sprytooltip4 = new Spry.Widget.Tooltip("sprytooltip4", "#sprytrigger4");
+    var sprytooltip5 = new Spry.Widget.Tooltip("sprytooltip5", "#sprytrigger5");  */
+</script>
+
+
+
+
+
+
+
+
+
+    </div>
+    </form>
+</body>
+</html>
